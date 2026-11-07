@@ -1,0 +1,99 @@
+name: 问题回报
+description: 插件报错、功能不正常、界面显示不对
+labels: ["问题", "待确认"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        刷物品、刷钱这类漏洞请私聊作者，不要发在这里。贴日志前请遮掉授权码、服务器 IP 和数据库密码。
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: 哪个插件
+      options:
+        - 云界面 CloudUI
+        - 云动作 CloudMotion
+        - 云时装 CloudCosmetics
+        - 云模型 CloudModel
+        - 云称号 CloudTitle
+        - 云物品 CloudItems
+        - 云饰品 CloudAcces
+        - 云同步 CloudSync
+        - 云副本 CloudDungeon
+        - 云血条 CloudHealthBar
+        - 云聊天 CloudChat
+        - 云世界 CloudWorlds
+        - 云全息 CloudHologram
+        - 云竞技 CloudArena
+        - 云商城 CloudShop
+        - 云公会 CloudGuild
+        - 云支付 CloudPay
+        - 云宠物 CloudPet
+        - 云战令 CloudPass
+        - 星月造物 StarCrate
+        - 星月邮箱 StarMail
+        - 星月天职 StarVocation
+        - 星月市集 StarAuction
+        - 星月行囊 StarBag
+        - 星月羁绊 StarFriend
+        - 星月纪事 StarQuest
+        - 其他 / 不确定
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: 插件版本
+      placeholder: 例如 1.7.5（看 jar 文件名或开服后台那行）
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: 服务器核心和版本
+      placeholder: 例如 Paper 1.21.11、Leaf 1.21.11、Folia 1.21.8
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: 玩家客户端
+      description: 客户端版本，有没有装光影、Sodium、Iris 之类的模组
+      placeholder: 例如 1.21.11 原版，或 1.21.11 Fabric + Iris 光影
+  - type: input
+    id: related
+    attributes:
+      label: 有关系的其他插件
+      placeholder: 例如 CraftEngine 0.0.66、ItemsAdder、ModelEngine、PlaceholderAPI
+  - type: textarea
+    id: what
+    attributes:
+      label: 出了什么问题
+      description: 实际看到什么，本来应该是怎样。有截图或录像最好，直接拖进来就行
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 怎么做会出现
+      placeholder: |
+        1. 开服
+        2. 输入 /cui open main
+        3. 看到……
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: 后台日志
+      description: 从开服到出问题那段，或报错的完整内容。太长可以上传成 txt 附件
+      render: shell
+  - type: checkboxes
+    id: check
+    attributes:
+      label: 发之前
+      options:
+        - label: 我搜过了，没有人回报过一样的问题
+          required: true
+        - label: 日志里的授权码、IP、数据库密码已经遮掉
+          required: true

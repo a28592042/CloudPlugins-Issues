@@ -1,0 +1,26 @@
+# 新 issue 依表单里选的插件自动贴上插件标签（例如「云界面」）
+name: 插件标签
+on:
+  issues:
+    types: [opened, edited]
+permissions:
+  issues: write
+jobs:
+  label:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body || '';
+            const m = body.match(/### 哪个插件\s+([^\n]+)/);
+            if (!m) return;
+            const name = m[1].trim().split(' ')[0];
+            if (!name || name === '其他' || name === '新插件' || name === '_No') return;
+            const { owner, repo } = context.repo;
+            try {
+              await github.rest.issues.getLabel({ owner, repo, name });
+            } catch (e) {
+              return;
+            }
+            await github.rest.issues.addLabels({ owner, repo, issue_number: context.payload.issue.number, labels: [name] });

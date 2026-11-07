@@ -1,0 +1,58 @@
+name: 功能建议
+description: 想要的新功能，或现有功能哪里可以更好用
+labels: ["建议"]
+body:
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: 哪个插件
+      options:
+        - 云界面 CloudUI
+        - 云动作 CloudMotion
+        - 云时装 CloudCosmetics
+        - 云模型 CloudModel
+        - 云称号 CloudTitle
+        - 云物品 CloudItems
+        - 云饰品 CloudAcces
+        - 云同步 CloudSync
+        - 云副本 CloudDungeon
+        - 云血条 CloudHealthBar
+        - 云聊天 CloudChat
+        - 云世界 CloudWorlds
+        - 云全息 CloudHologram
+        - 云竞技 CloudArena
+        - 云商城 CloudShop
+        - 云公会 CloudGuild
+        - 云支付 CloudPay
+        - 云宠物 CloudPet
+        - 云战令 CloudPass
+        - 星月造物 StarCrate
+        - 星月邮箱 StarMail
+        - 星月天职 StarVocation
+        - 星月市集 StarAuction
+        - 星月行囊 StarBag
+        - 星月羁绊 StarFriend
+        - 星月纪事 StarQuest
+        - 其他 / 不确定
+        - 新插件
+    validations:
+      required: true
+  - type: textarea
+    id: want
+    attributes:
+      label: 想要什么
+      description: 想做到什么效果，可以附参考图或别的服务器的例子
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: 用在什么地方
+      description: 你的服务器会怎么用它，能帮我们判断怎么做比较合适
+  - type: checkboxes
+    id: check
+    attributes:
+      label: 发之前
+      options:
+        - label: 我搜过了，没有人提过一样的建议（有的话去那边点赞就好）
+          required: true
