@@ -33,6 +33,7 @@ body:
         - 星月行囊 StarBag
         - 星月羁绊 StarFriend
         - 星月纪事 StarQuest
+        - 雨之登录 RainLogin
         - 其他 / 不确定
         - 新插件
     validations:
